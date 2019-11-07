@@ -5,10 +5,11 @@ module.exports = function(context) {
   var fs = context.requireCordovaModule('fs'),
     path = context.requireCordovaModule('path');
 
-  var platformRoot = path.join(context.opts.projectRoot, 'platform/android');
+  var platformRoot = path.join(context.opts.projectRoot, 'platforms/android');
 
   var gradleFile = path.join(platformRoot, 'build.gradle');
-
+   console.info('AMAL: Came into script');
+	
   if (fs.existsSync(gradleFile)) {
     try {
         fs.readFile(gradleFile, 'utf8', function (err,data) {
@@ -18,15 +19,13 @@ module.exports = function(context) {
 
           var oldGradleDep = 'com.android.tools.build:gradle:3.3.0';
 		  var newGradleDep = 'com.android.tools.build:gradle:3.3.1';
-        
-          if (data.indexOf(oldGradleDep) == -1) {
-
+    
             var result = data.replace(oldGradleDep, newGradleDep);
 
             fs.writeFile(gradleFile, result, 'utf8', function (err) {
               if (err) {
                   throw new Error('Unable to write into build.gradle: ' + err);
-              }
+ 
               console.info('AMAL: Updated gradle file');
             });
           }
