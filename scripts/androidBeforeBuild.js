@@ -5,7 +5,7 @@ module.exports = function(context) {
   var fs = context.requireCordovaModule('fs'),
     path = context.requireCordovaModule('path');
 
-  var platformRoot = path.join(context.opts.projectRoot, 'platforms/android');
+  var platformRoot = path.join(context.opts.projectRoot, 'platform/android');
 
   var gradleFile = path.join(platformRoot, 'build.gradle');
 
