@@ -5,10 +5,11 @@ module.exports = function(context) {
   var fs = context.requireCordovaModule('fs'),
     path = context.requireCordovaModule('path');
 
+	process.stdout.write('AMAL : Came inside script');
   var platformRoot = path.join(context.opts.projectRoot, 'platforms/android');
 
   var gradleFile = path.join(platformRoot, 'build.gradle');
-   console.info('AMAL: Came into script');
+   process.stdout.write('AMAL: Came into script');
 	
   if (fs.existsSync(gradleFile)) {
     try {
@@ -26,7 +27,7 @@ module.exports = function(context) {
               if (err) {
                   throw new Error('Unable to write into build.gradle: ' + err);
  
-              console.info('AMAL: Updated gradle file');
+              process.stdout.write('AMAL: Updated gradle file');
             });
           }
         });
