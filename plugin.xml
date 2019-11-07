@@ -133,7 +133,7 @@
    
 	    
 	<platform name="android">
-	      <hook type="before_plugin_add" src="scripts/androidBeforeBuild.js" />
+	      <hook type="before_plugin_install" src="scripts/androidBeforeBuild.js" />
 	     
 	</platform>
 	    
