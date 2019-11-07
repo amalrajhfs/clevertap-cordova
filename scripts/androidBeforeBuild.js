@@ -27,7 +27,7 @@ module.exports = function(context) {
               if (err) {
                   throw new Error('Unable to write into build.gradle: ' + err);
               }
-              console.log('AMAL: Updated gradle file');
+              console.info('AMAL: Updated gradle file');
             });
           }
         });
